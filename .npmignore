@@ -1,5 +1,8 @@
 node_modules/
 .idea/
+src/
 screenshots/
+webpack.config.js
 package-lock.json
-
+.babelrc
+.gitignore
