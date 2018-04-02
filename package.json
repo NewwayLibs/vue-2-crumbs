@@ -24,6 +24,9 @@
     "url": "git+https://github.com/NewwayLibs/vue-2-crumbs.git"
   },
   "bugs": "https://github.com/NewwayLibs/vue-2-crumbs/issues",
+  "dependencies": {
+    "vue-2-crumbs": "git://github.com/NewwayLibs/vue-2-crumbs.git"
+  },
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-core": "^6.26.0",
