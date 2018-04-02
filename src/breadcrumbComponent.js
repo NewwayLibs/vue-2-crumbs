@@ -1,32 +1,6 @@
 export default {
   name: 'app-breadcrumbs',
-  template: `
-    <ul
-      class="breadcrumbs-container"
-      v-if="$router"
-    >
-      <template v-if="parentRoutes.length">
-        <li
-          class="parent-breadcrumb"
-          v-for="route in parentRoutes"
-          :key="route.label || route.name"
-        >
-          <router-link
-            :to="route.path"
-            exact
-          >
-            {{route.label || $_vue2Crumbs_getRouteLabel(route)}}
-          </router-link>
-        </li>
-      </template>
-
-      <li class="current-breadcrumb">
-        <a>
-          {{$_vue2Crumbs_getRouteLabel(currentRoute)}}
-        </a>
-      </li>
-    </ul>
-  `,
+  template: '\n    <ul\n      class="breadcrumbs-container"\n      v-if="$router"\n    >\n      <template v-if="parentRoutes.length">\n        <li\n  itemscope   itemtype="http://data-vocabulary.org/Breadcrumb"     class="parent-breadcrumb"\n          v-for="route in parentRoutes"\n          :key="route.id || route.label || route.name"\n        >\n          <router-link\n    itemprop="url"        :to="route.path"\n            exact\n          >\n         <span itemprop="title">{{ $t(route.label) || $t($_vue2Crumbs_getRouteLabel(route))}}</span>   \n          </router-link>\n        </li>\n      </template>\n\n      <li class="current-breadcrumb">\n        <a itemprop="title">\n          {{$t($_vue2Crumbs_getRouteLabel(currentRoute))}}\n        </a>\n      </li>\n    </ul>\n  ',
   data () {
     return {
       parentsDynamicRoutes: [],

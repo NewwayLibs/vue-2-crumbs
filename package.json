@@ -18,12 +18,12 @@
     "vue-router"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/Suruat/vue-2-crumbs#readme",
+  "homepage": "https://github.com/NewwayLibs/vue-2-crumbs#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Suruat/vue-2-crumbs.git"
+    "url": "git+https://github.com/NewwayLibs/vue-2-crumbs.git"
   },
-  "bugs": "https://github.com/Suruat/vue-2-crumbs/issues",
+  "bugs": "https://github.com/NewwayLibs/vue-2-crumbs/issues",
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-core": "^6.26.0",
