@@ -1,0 +1,127 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'publish' ]
+2 info using npm@3.10.10
+3 info using node@v6.10.3
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: 'C:\\Users\\user\\Desktop\\pack\\vue-2-crumbs',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory C:\Users\user\AppData\Roaming\npm-cache\vue-2-crumbs\0.4.3\package.tgz not in flight; packing
+9 verbose correctMkdir C:\Users\user\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+10 info lifecycle vue-2-crumbs@0.4.3~prepublish: vue-2-crumbs@0.4.3
+11 silly lifecycle vue-2-crumbs@0.4.3~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ 'C:\\Users\\user\\AppData\\Roaming\\npm-cache\\vue-2-crumbs\\0.4.3\\package.tgz',
+12 verbose tar pack   'C:\\Users\\user\\Desktop\\pack\\vue-2-crumbs' ]
+13 verbose tarball C:\Users\user\AppData\Roaming\npm-cache\vue-2-crumbs\0.4.3\package.tgz
+14 verbose folder C:\Users\user\Desktop\pack\vue-2-crumbs
+15 verbose addLocalTarball adding from inside cache C:\Users\user\AppData\Roaming\npm-cache\vue-2-crumbs\0.4.3\package.tgz
+16 verbose correctMkdir C:\Users\user\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+17 silly cache afterAdd vue-2-crumbs@0.4.3
+18 verbose afterAdd C:\Users\user\AppData\Roaming\npm-cache\vue-2-crumbs\0.4.3\package\package.json not in flight; writing
+19 verbose correctMkdir C:\Users\user\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+20 verbose afterAdd C:\Users\user\AppData\Roaming\npm-cache\vue-2-crumbs\0.4.3\package\package.json written
+21 silly publish { name: 'vue-2-crumbs',
+21 silly publish   version: '0.4.3',
+21 silly publish   description: 'Breadcrumbs plugin for Vue.js 2 framework that allows to select parent route in route meta object with no need of sub-routing',
+21 silly publish   author: { name: 'Alexeev Kyrylo', email: 'suruat90@gmail.com' },
+21 silly publish   main: 'index.js',
+21 silly publish   keywords:
+21 silly publish    [ 'breadcrumbs',
+21 silly publish      'vue',
+21 silly publish      'vuejs',
+21 silly publish      'vue2',
+21 silly publish      'plugin',
+21 silly publish      'route',
+21 silly publish      'router',
+21 silly publish      'vue-router' ],
+21 silly publish   license: 'MIT',
+21 silly publish   homepage: 'https://github.com/NewwayLibs/vue-2-crumbs#readme',
+21 silly publish   repository:
+21 silly publish    { type: 'git',
+21 silly publish      url: 'git+https://github.com/NewwayLibs/vue-2-crumbs.git' },
+21 silly publish   bugs: { url: 'https://github.com/NewwayLibs/vue-2-crumbs/issues' },
+21 silly publish   devDependencies:
+21 silly publish    { babel: '^6.23.0',
+21 silly publish      'babel-core': '^6.26.0',
+21 silly publish      'babel-loader': '^7.1.2',
+21 silly publish      'babel-preset-env': '^1.6.1',
+21 silly publish      webpack: '^3.11.0' },
+21 silly publish   peerDependencies: { vue: '2.x.x', 'vue-router': '^2.1.x' },
+21 silly publish   scripts:
+21 silly publish    { build: 'webpack',
+21 silly publish      prebublish: 'npm run build',
+21 silly publish      test: 'echo "Error: no test specified" && exit 1' },
+21 silly publish   readme: '# vue-2-crumbs\r\n\r\nBreadcrumbs plugin for Vue.js 2 framework that allows to select parent route in route meta object with no need of sub-routing.\r\n\r\n##### Features:\r\n- [Setting parent](#simple-example) route without need to actually nest it in children array\r\n- [Sub-routing](#sub-routing) as default behavior\r\n- Define [breadcrumb info](#define-breadcrumb-data-in-component) in page component\r\n- Shorthand labeling (`breadcrumb: \'Page Label\'`)\r\n- [Dynamic breadcrumbs](#dynamic-breadcrumbs) (with some caveats).\r\n\r\n##### Requirements:\r\n- Vue: 2.x.x,\r\n- vue-router: ^2.1.x\r\n\r\n## Installation\r\n\r\n```sh\r\n$ npm install vue-2-crumbs --save\r\n```\r\n\r\n```js\r\nimport Vue from \'vue\'\r\nimport Vue2Crumbs from \'vue-2-crumbs\'\r\n\r\nVue.use(Vue2Crumbs)\r\n```\r\nAfter that `<app-breadcrumbs></app-breadcrumbs>` component would be at your expose.\r\n\r\n## Usage\r\nUse the `breadcrumb` property in route\'s `meta` to provide route label or/and parent route `name` as in example below:\r\n\r\n### Simple Example\r\n```js\r\nnew VueRouter({\r\n  routes: [\r\n    {\r\n      path: \'/\',\r\n      name: \'home\', // Be sure to set \'name\' property for the route you want to be "parent" route\r\n      component: Home,\r\n      meta: {\r\n        breadcrumb: \'Home Custom Label\' // This is a shorthand for case you want to set just breadcrumb label\r\n      }\r\n    },\r\n    {\r\n      path: \'/about\',\r\n      name: \'about\',\r\n      component: About,\r\n      meta: {\r\n        breadcrumb: {\r\n          label: \'Custom About page Label\',\r\n          parent: \'home\' // Here you should use exact string as for name property in "parent" route\r\n        }\r\n      }\r\n    },\r\n    {\r\n      path: \'/contact\',\r\n      name: \'contact\', // name property would also used as default route label for breadcrumbs\r\n      component: Contact,\r\n      meta: {\r\n        breadcrumb: {\r\n          parent: \'about\'\r\n        }\r\n      }\r\n    }\r\n  ]\r\n})\r\n```\r\n##### Result:\r\n![Simple Usage Result](https://raw.githubusercontent.com/Suruat/vue-2-crumbs/master/screenshots/simple-usage.png)\r\n\r\n\r\n### Sub-routing\r\nPlugin also supports default behavior for nested routes:\r\n```\r\nnew VueRouter({\r\n  routes: [\r\n    {\r\n      path: \'/\',\r\n      name: \'home\',\r\n      component: Page,\r\n      children: [\r\n        {\r\n          path: \'/about\',\r\n          component: About,\r\n          meta: {\r\n            breadcrumb: {\r\n              label: \'Custom About page Label\'\r\n            }\r\n          },\r\n          children: [\r\n            {\r\n              path: \'/contact\',\r\n              component: Contact,\r\n              meta: {\r\n                breadcrumb: \'Contact Custom Label\'\r\n              }\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n})\r\n```\r\nYou can combine this approaches:\r\n```\r\nnew VueRouter({\r\n  routes: [\r\n    {\r\n      path: \'/\',\r\n      name: \'home\',\r\n      component: Home,\r\n      children: [\r\n        {\r\n          path: \'about\',\r\n          component: About,\r\n          meta: {\r\n            breadcrumb: {\r\n              label: \'Custom About page Label\'\r\n            }\r\n          },\r\n          children: [\r\n            {\r\n              path: \'contact\',\r\n              name: \'contact\',\r\n              component: Contact,\r\n              meta: {\r\n                breadcrumb: \'Contact Custom Label\'\r\n              }\r\n            },\r\n            {\r\n              path: \'terms\',\r\n              component: Terms,\r\n              meta: {\r\n                breadcrumb: {\r\n                  label: \'Terms\',\r\n                  parent: \'contact\'\r\n                }\r\n              }\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n})\r\n```\r\n##### Result:\r\n![Combine Usage Result](https://raw.githubusercontent.com/Suruat/vue-2-crumbs/master/screenshots/combine-usage.png)\r\n\r\n\r\n### Define Breadcrumb Data in Component\r\nYou easily can define breadcrumbs information in page components. This would overwrite data in the router. For example:\r\n**Terms.vue**\r\n```\r\nbreadcrumb: {\r\n  label: \'Terms Label From Component\',\r\n  parent: \'contact\'\r\n},\r\ndata () {\r\n  return {\r\n    ...\r\n  }\r\n}\r\n```\r\n**Contact.vue**\r\n```\r\nbreadcrumb: \'Contact Label from Component\',\r\ndata () {\r\n  return {\r\n    ...\r\n  }\r\n}\r\n```\r\n**Router**\r\n```\r\nnew VueRouter({\r\n  routes: [\r\n    {\r\n      path: \'/\',\r\n      name: \'home\',\r\n      component: Home,\r\n      children: [\r\n        {\r\n          path: \'about\',\r\n          component: About,\r\n          meta: {\r\n            breadcrumb: {\r\n              label: \'Custom About page Label\'\r\n            }\r\n          },\r\n          children: [\r\n            {\r\n              path: \'contact\',\r\n              name: \'contact\',\r\n              component: Contact,\r\n              meta: {\r\n                breadcrumb: {\r\n                  parent: \'home\'\r\n                }\r\n              }\r\n            },\r\n            {\r\n              path: \'terms\',\r\n              component: Terms\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n})\r\n```\r\n##### Result:\r\n![Combine Usage Result](https://raw.githubusercontent.com/Suruat/vue-2-crumbs/master/screenshots/component-usage.png)\r\n\r\n\r\n### Dynamic Breadcrumbs\r\nYou can use **dynamic data** to provide breadcrumb information (as `label` and `parent`) in page component.\r\n**IMPORTANT!** Because of the tech limitations, you need to be sure, that dynamic breadcrumb is the last one in the list. Plugin doesn\'t allowed to build breadcrumbs list with dynamic part in the middle of it. To handle this cases, please check [using `parentsList` property](#using-parentslist).\r\n\r\n**Terms.vue**\r\n```\r\nbreadcrumb () {\r\n  return {\r\n    label: this.title,\r\n    parent: this.parent\r\n  }\r\n},\r\ndata () {\r\n  return {\r\n    title: \'Dynamic Terms Label\',\r\n    parent: \'home\'\r\n  }\r\n}\r\n```\r\n**Router**\r\n```\r\nnew VueRouter({\r\n  routes: [\r\n    {\r\n      path: \'/\',\r\n      name: \'home\',\r\n      component: Home,\r\n      children: [\r\n        {\r\n          path: \'about\',\r\n          component: About,\r\n          meta: {\r\n            breadcrumb: {\r\n              label: \'Custom About page Label\'\r\n            }\r\n          },\r\n          children: [\r\n            {\r\n              path: \'contact\',\r\n              name: \'contact\',\r\n              component: Contact,\r\n              meta: {\r\n                breadcrumb: {\r\n                  parent: \'home\'\r\n                }\r\n              }\r\n            },\r\n            {\r\n              path: \'terms\',\r\n              component: Terms\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n})\r\n```\r\n##### Result:\r\n![Combine Usage Result](https://raw.githubusercontent.com/Suruat/vue-2-crumbs/master/screenshots/dynamic-breadcrumb.png)\r\n\r\n\r\n### Using `parentsList`\r\nIF you need to use dynamic breadcrumb in the middle of your breadcrumb list, than you should provide whole chain in component\'s `parentsList` property. You need to provide list of objects that contain `path` and `label`, like in example below:\r\n\r\n**Post.vue**\r\n```\r\nbreadcrumb () {\r\n  return {\r\n    label: this.postTitle,\r\n    parentsList: [\r\n      {\r\n        path: `/${this.$route.params.categorySlug}`,\r\n        label: this.categoryTitle\r\n      },\r\n      {\r\n        path: \'/\',\r\n        label: \'Home\'\r\n      }\r\n    ]\r\n  }\r\n},\r\ndata () {\r\n  return {\r\n    postTitle: \'\',\r\n    categoryTitle: \'\'\r\n  }\r\n},\r\ncreated () {\r\n  let {categorySlug, postSlug} = this.$route.params\r\n  // Some API calls\r\n  // ...\r\n  this.postTitle = \'Breaking News!\'\r\n  this.categoryTitle = \'Latest\'\r\n}\r\n```\r\n**Router**\r\n```\r\nnew VueRouter({\r\n  routes: [\r\n    {\r\n      path: \'/\',\r\n      name: \'home\',\r\n      component: Home\r\n    },\r\n    {\r\n      path: \'/:categorySlug\',\r\n      name: \'category\',\r\n      component: Category\r\n    },\r\n    {\r\n      path: \'/:categorySlug/:postSlug\',\r\n      component: Post\r\n    }\r\n  ]\r\n})\r\n```\r\n##### Result:\r\n![Combine Usage Result](https://raw.githubusercontent.com/Suruat/vue-2-crumbs/master/screenshots/parentsList.png)\r\n\r\n\r\n# License\r\n\r\n[MIT](http://opensource.org/licenses/MIT)\r\n',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: 'ba95cc90e01c5072774a30bbf5e1ee73a1f41158',
+21 silly publish   _id: 'vue-2-crumbs@0.4.3',
+21 silly publish   _shasum: '6ced2c1eca699a26450ec8e101a81bf83f0b2742',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name vue-2-crumbs
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'vue-2-crumbs',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   escapedName: 'vue-2-crumbs',
+26 silly mapToRegistry   name: 'vue-2-crumbs',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://registry.npmjs.org/vue-2-crumbs
+28 verbose publish registryBase https://registry.npmjs.org/
+29 silly publish uploading C:\Users\user\AppData\Roaming\npm-cache\vue-2-crumbs\0.4.3\package.tgz
+30 verbose request uri https://registry.npmjs.org/vue-2-crumbs
+31 verbose request sending authorization for write operation
+32 info attempt registry request try #1 at 11:43:43
+33 verbose request using bearer token for auth
+34 verbose request id 54acdd37d6d1a9cc
+35 http request PUT https://registry.npmjs.org/vue-2-crumbs
+36 http 403 https://registry.npmjs.org/vue-2-crumbs
+37 verbose headers { 'content-type': 'application/json',
+37 verbose headers   'cache-control': 'max-age=300',
+37 verbose headers   'content-length': '106',
+37 verbose headers   'accept-ranges': 'bytes',
+37 verbose headers   date: 'Tue, 03 Apr 2018 08:43:44 GMT',
+37 verbose headers   via: '1.1 varnish',
+37 verbose headers   connection: 'keep-alive',
+37 verbose headers   'x-served-by': 'cache-fra19138-FRA',
+37 verbose headers   'x-cache': 'MISS',
+37 verbose headers   'x-cache-hits': '0',
+37 verbose headers   'x-timer': 'S1522745023.266210,VS0,VE767',
+37 verbose headers   vary: 'Accept-Encoding, Accept' }
+38 verbose request invalidating C:\Users\user\AppData\Roaming\npm-cache\registry.npmjs.org\vue-2-crumbs on PUT
+39 error publish Failed PUT 403
+40 verbose stack Error: You do not have permission to publish "vue-2-crumbs". Are you logged in as the correct user? : vue-2-crumbs
+40 verbose stack     at makeError (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:302:12)
+40 verbose stack     at CachingRegistryClient.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:290:14)
+40 verbose stack     at Request._callback (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:210:14)
+40 verbose stack     at Request.self.callback (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:187:22)
+40 verbose stack     at emitTwo (events.js:106:13)
+40 verbose stack     at Request.emit (events.js:191:7)
+40 verbose stack     at Request.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:1048:10)
+40 verbose stack     at emitOne (events.js:96:13)
+40 verbose stack     at Request.emit (events.js:188:7)
+40 verbose stack     at IncomingMessage.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:969:12)
+41 verbose statusCode 403
+42 verbose pkgid vue-2-crumbs
+43 verbose cwd C:\Users\user\Desktop\pack\vue-2-crumbs
+44 error Windows_NT 6.3.9600
+45 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "publish"
+46 error node v6.10.3
+47 error npm  v3.10.10
+48 error code E403
+49 error You do not have permission to publish "vue-2-crumbs". Are you logged in as the correct user? : vue-2-crumbs
+50 error If you need help, you may report this error at:
+50 error     <https://github.com/npm/npm/issues>
+51 verbose exit [ 1, true ]

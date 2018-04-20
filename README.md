@@ -1,4 +1,4 @@
-# vue-2-crumbs
+# publickvue2crumbs
 
 Breadcrumbs plugin for Vue.js 2 framework that allows to select parent route in route meta object with no need of sub-routing.
 
@@ -16,12 +16,12 @@ Breadcrumbs plugin for Vue.js 2 framework that allows to select parent route in 
 ## Installation
 
 ```sh
-$ npm install vue-2-crumbs --save
+$ npm install publickvue2crumbs --save
 ```
 
 ```js
 import Vue from 'vue'
-import Vue2Crumbs from 'vue-2-crumbs'
+import Vue2Crumbs from 'publickvue2crumbs'
 
 Vue.use(Vue2Crumbs)
 ```
